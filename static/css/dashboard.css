@@ -1,0 +1,108 @@
+.server-status .iconify {
+	font-size: 3rem;
+	margin-right: 10px;
+}
+
+/* Server Item */
+.server-item {
+	display: flex;
+	position: relative;
+	padding: 1rem .75rem 1rem .75rem;
+	justify-content: space-between;
+	background-color: var(--color-server-item-background);
+	border-radius: .25rem;
+	transition: height .2s;
+	flex-direction: row;
+	height: 5rem;
+	cursor: pointer;
+}
+
+.server-item::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: .25rem;
+	height: 100%;
+	border-radius: .25rem 0 0 .25rem;
+}
+
+.server-status-stopped::after {
+	background-color: var(--color-status-stopped);
+}
+
+.server-status-creating::after,
+.server-status-installing::after {
+	background-color: var(--color-status-installing);
+}
+
+.server-status-running::after {
+	background-color: var(--color-status-running);
+}
+
+.server-status-error::after {
+	background-color: var(--color-status-error);
+}
+
+.server-status-running .server-status {
+	color: var(--color-status-running);
+}
+
+.server-status-error .server-status {
+	color: var(--color-status-error);
+}
+
+.server-item:not(:last-child) {
+	margin-bottom: .5rem;
+}
+
+.server-item:hover {
+	height: 7rem;
+}
+
+.server-name {
+	width: 100%;
+	max-width: 200px;
+	font-size: 1.25rem;
+	font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, black 70%, transparent);
+}
+
+.server-info {
+	width: 100%;
+}
+
+.server-status {
+	font-size: 2rem;
+	display: flex;
+	line-height: 1.375;
+}
+
+/* Server Actions */
+.server-actions {
+	display: flex;
+	position: absolute;
+	left: 10px;
+	bottom: 5px;
+	transition: opacity .2s;
+	opacity: 0;
+}
+
+.server-item:hover .server-actions {
+	opacity: 1;
+}
+
+.server-actions .iconify {
+	font-size: 1.5rem;
+	margin-right: 10px;
+}
+
+.server-status-error .start-server, .server-status-creating .start-server {
+	display: none;
+}
+
+.server-status-error .stop-server, .server-status-creating .stop-server {
+	display: none;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="msapplication-TileColor" content="#00a300">
+        <meta name="msapplication-config" content="/static/icons/browserconfig.xml">
+        <meta name="description" content="Dashboard for Minecraft Server Control">
+        <meta name="keywords" content="Minecraft, Server, Control, Dashboard">
+        <meta name="theme-color" content="#00a300">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+        <link rel="manifest" href="/static/icons/site.webmanifest">
+        <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#52a535">
+        <link rel="shortcut icon" href="/static/icons/favicon.ico">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/dashboard.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/static/scripts/index.js"></script>
+        <script src="/static/scripts/dashboard-page.js"></script>
+        <script src="/static/scripts/iconify.min.js"></script>
+        <title>Dashboard | Minecraft Server Control</title>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <div class="server-list">
+                <h1>Servers</h1>
+                <br>
+                <div id="list">
+                    <% servers.forEach((server) => { %>
+                        <div class="server-item server-status-<%- server.status %>" data-id="<%- server.id %>" tabindex="0">
+                            <div class="server-info">
+                                <h2 class="server-name"><%= server.name %></h2>
+                                <span class="text-secondary text-smaller"><%- server.id %></span> - 
+                                <span class="text-secondary text-smaller"><%- server.software == null ? 'null' : server.software %></span>
+                            </div>
+                            <div class="server-status">
+                            <% switch (server.status) {
+                            case 'stopped' : %>
+                                <span class="iconify" data-icon="mdi-octagon">🛑</span>
+                            <% break;
+                            case 'starting' : %>
+                                <span class="iconify mdi-spin" data-icon="mdi-loading">🔄</span>
+                            <% break;
+                            case 'running' : %>
+                                <span class="iconify" data-icon="mdi-server">💻</span>
+                            <% break;
+                            case 'error' : %> <!-- Installation error -->
+                                <span class="iconify" data-icon="mdi-alert-circle">⚠</span>
+                            <% break;
+                            case 'crash' : %> <!-- Server crash -->
+                                <span class="iconify" data-icon="mdi-alert-circle">⚠</span>
+                            <% break;
+                            case 'creating' : %>
+                                <span class="iconify mdi-spin" data-icon="mdi-progress-download">🔽</span>
+                            <% break;
+                            case 'default' : %>
+                                <span class="iconify" data-icon="mdi-alert-circle">⚠</span>
+                            <% break;
+                            } %>
+                            </div>
+                            <div class="server-actions"><span data-id="<%- server.id %>" class="start-server"><span class="iconify" data-icon="mdi-play">▶</span></span> <span class="stop-server" data-id="<%- server.id %>"><span class="iconify" data-icon="mdi-stop">🟥</span></span> <span class="delete-server" data-id="<%- server.id %>" data-name="<%- server.name %>"><span class="iconify" data-icon="mdi-delete">❌</span></span></div>
+                        </div>
+                    <% }); %>
+
+                    <% if(servers.length == 0) { %>
+                        <div class="server-item">No servers yet ;-;<br>You can drag and drop a server zip here</div>
+                    <% } %>
+                </div>
+            </div>
+
+            <input type="button" class="btn btn-primary" id="add-server-button" tabindex="0" value="Add Server"></input>
+        </div>
+    </body>
+</html>
