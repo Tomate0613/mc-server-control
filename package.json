@@ -1,0 +1,37 @@
+{
+  "name": "mc-server-control",
+  "version": "1.0.0",
+  "description": "Simple web UI for managing Minecraft servers",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomate0613/mc-server-control.git"
+  },
+  "keywords": [
+    "http",
+    "Minecraft",
+    "ui",
+    "server"
+  ],
+  "author": "Tomate0613,XECortex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tomate0613/mc-server-control/issues"
+  },
+  "homepage": "https://github.com/Tomate0613/mc-server-control#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.7",
+    "express": "^4.18.0",
+    "express-fileupload": "^1.1.9",
+    "extract-zip": "^2.0.1",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "lodash": "^4.17.19",
+    "morgan": "^1.9.1",
+    "socket.io": "^4.5.0",
+    "sqlite": "^4.1.1",
+    "sqlite3": "^5.0.6"
+  }
+}
