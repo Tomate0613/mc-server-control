@@ -27,6 +27,13 @@
 	border-radius: .25rem 0 0 .25rem;
 }
 
+
+.server-status {
+	font-size: 2rem;
+	display: flex;
+	line-height: 1.375;
+}
+
 .server-status-stopped::after {
 	background-color: var(--color-status-stopped);
 }
@@ -74,12 +81,6 @@
 	width: 100%;
 }
 
-.server-status {
-	font-size: 2rem;
-	display: flex;
-	line-height: 1.375;
-}
-
 /* Server Actions */
 .server-actions {
 	display: flex;
@@ -99,10 +100,12 @@
 	margin-right: 10px;
 }
 
-.server-status-error .start-server, .server-status-creating .start-server {
+.server-status-error .start-server,
+.server-status-creating .start-server {
 	display: none;
 }
 
-.server-status-error .stop-server, .server-status-creating .stop-server {
+.server-status-error .stop-server,
+.server-status-creating .stop-server {
 	display: none;
 }
