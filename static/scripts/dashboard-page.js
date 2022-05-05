@@ -34,7 +34,7 @@ socket.on('update_server_list', (servers) => {
         const serverItem = document.createElement('div');
         serverItem.classList.add('server-item');
         serverItem.classList.add(`server-status-${server.status}`);
-        serverItem.tabIndex = 0
+        serverItem.tabIndex = 0;
         serverItem.dataset.id = server.id;
         serverItem.innerHTML = `
         <div class="server-info">
@@ -94,9 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
             request.addEventListener('load', function(e) {
                 const response = JSON.parse(request.responseText);
                 const status = response.status;
-                const serverID = response.serverID;
 
-                if (status == 'OK') {
+                if (status === 'OK') {
                     document.getElementById('background').remove();
                 } else {
                     console.error(request.response);
@@ -118,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const file = files[0];
 
-        if(file.type != "application/x-zip-compressed")
+        if(file.type !== "application/x-zip-compressed")
             return;
 
         formData.append('upload', file, file.name);
@@ -146,7 +145,7 @@ function updateActions(){
                 const status = response.status;
                 const message = response.message;
 
-                if(status == 'OK'){
+                if(status === 'OK'){
                     createModal('Starting server', 'Server is now starting');
                 }else if(status == 'ERROR'){
                     createModal('Error', message);
@@ -168,8 +167,8 @@ function updateActions(){
                 const status = response.status;
                 const message = response.message;
 
-                if(status == 'OK'){
-                    createModal('Stopping server', 'Server is now shutting down')
+                if(status === 'OK'){
+                    createModal('Stopping server', 'Server is now shutting down');
                 }else if(status == 'ERROR'){
                     createModal('Error', message);
                 }
@@ -201,7 +200,7 @@ function updateActions(){
                     const status = response.status;
                     const message = response.message;
 
-                    if(status == 'OK'){
+                    if(status === 'OK'){
                         createModal('Deleted server', 'Server is now deleted')
                     }else if(status == 'ERROR'){
                         createModal('Error', message);

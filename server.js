@@ -34,7 +34,15 @@ app.set('view engine', 'ejs');
         filename: 'database.db',
         driver: sqlite3.Database
     });
-    await db.exec(`CREATE TABLE IF NOT EXISTS servers (id INTEGER PRIMARY KEY AUTOINCREMENT,created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,name varchar NOT NULL,status varchar NOT NULL,software varchar NULL,version varchar NULL)`);
+    await db.exec(`
+        CREATE TABLE IF NOT EXISTS servers
+        (id INTEGER PRIMARY KEY AUTOINCREMENT,
+        created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        name varchar NOT NULL,
+        status varchar NOT NULL,
+        software varchar NULL,
+        version varchar NULL)
+    `);
     await db.run('UPDATE servers SET status = ? WHERE status = ?', ['stopped', 'running']);
 
     prepareDirectorys();
@@ -261,7 +269,7 @@ async function installSoftware(software, serverID, db) {
 
 async function downloadSoftware(software) {
     //download software
-    await downloadFile(config.software[software].download_url, `minecraft/software/${software}.jar`);
+    await downloadFile(config.software[software].downloadUrl, `minecraft/software/${software}.jar`);
 }
 
 async function downloadFile(url, path) {

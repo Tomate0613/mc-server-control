@@ -2,13 +2,13 @@
     "accept_eula": false,
     "software": {
         "fabric": {
-            "download_url": "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.14.4/0.10.2/server/jar"
+            "downloadUrl": "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.14.4/0.10.2/server/jar"
         },
         "paper": {
-            "download_url": "https://papermc.io/api/v2/projects/paper/versions/1.18.2/builds/317/downloads/paper-1.18.2-317.jar"
+            "downloadUrl": "https://papermc.io/api/v2/projects/paper/versions/1.18.2/builds/317/downloads/paper-1.18.2-317.jar"
         },
         "vanilla": {
-            "download_url": "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar"
+            "downloadUrl": "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar"
         }
     }
 }
