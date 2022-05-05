@@ -11,14 +11,13 @@ const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const _ = require('lodash');
 const config = require('./config.json');
 const extract = require('extract-zip');
 
 //enable files upload
-app.use(fileUpload({
-    createParentPath: true,
-}));
+app.use(
+    fileUpload({createParentPath: true})
+);
 
 //add other middleware
 app.use(cors());
@@ -136,7 +135,7 @@ app.set('view engine', 'ejs');
         res.send({ status: 'OK' });
 
         serverProcess.on('close', async (code) => {
-            if (code == 0)
+            if (code === 0)
                 await db.run('UPDATE servers SET status = ? WHERE id = ?', ['stopped', serverID]);
             else
                 await db.run('UPDATE servers SET status = ? WHERE id = ?', ['crash', serverID]);
@@ -251,7 +250,7 @@ async function installSoftware(software, serverID, db) {
     serverProcess.on('close', async (code) => {
         console.log(`server process stopped with code ${code}`);
 
-        if (code == 0)
+        if (code === 0)
             await db.run('UPDATE servers SET status = ? WHERE id = ?', ['stopped', serverID]);
         else
             await db.run('UPDATE servers SET status = ? WHERE id = ?', ['error', serverID]);
@@ -268,7 +267,7 @@ async function downloadSoftware(software) {
 async function downloadFile(url, path) {
     return new Promise((resolve, reject) => {
         const file = fs.createWriteStream(path);
-        const request = https.get(url, function (response) {
+        https.get(url, function (response) {
             response.pipe(file);
             file.on('finish', function () {
                 file.close(resolve);  // close() is async, call cb after close completes.

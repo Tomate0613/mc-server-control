@@ -50,7 +50,7 @@ socket.on('update_server_list', (servers) => {
         list.appendChild(serverItem);
     });
 
-    if(servers.length == 0) { 
+    if(servers.length === 0) { 
         list.innerHTML = '<div class="server-item">No servers here ;-;</div>';
     }
 
@@ -215,7 +215,7 @@ function updateActions(){
 
     for(var i = 0; i < items.length; i++){
         items.item(i).addEventListener('click', function (e){
-            if(!event.target.offsetParent.classList.contains('server-item'))
+            if(!event.target.offsetParent)
                 return;
             document.location.href = `/servers/${event.currentTarget.dataset.id}`;
         });
