@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
             request.send(JSON.stringify(body));
             
-            request.addEventListener('load', function(e) {
+            request.addEventListener('load', function() {
                 const response = JSON.parse(request.responseText);
                 const status = response.status;
 
@@ -151,7 +151,7 @@ function updateActions(){
     const starts = document.getElementsByClassName('start-server');
 
     for(let i = 0; i < starts.length; i++){
-        starts.item(i).addEventListener('click', function (e){
+        starts.item(i).addEventListener('click', function (){
             event.target.blur();
             let request = new XMLHttpRequest();
             request.open('POST', `/api/server/${event.currentTarget.dataset.id}/start`);
@@ -173,7 +173,7 @@ function updateActions(){
     const stops = document.getElementsByClassName('stop-server');
 
     for(let i = 0; i < stops.length; i++){
-        stops.item(i).addEventListener('click', function (e){
+        stops.item(i).addEventListener('click', function (){
             event.target.blur();
             let request = new XMLHttpRequest();
             request.open('POST', `/api/server/${event.currentTarget.dataset.id}/stop`);
@@ -195,8 +195,8 @@ function updateActions(){
     const deletes = document.getElementsByClassName('delete-server');
 
     for(let i = 0; i < deletes.length; i++){
-        deletes.item(i).addEventListener('click', function (e){
-            const dataset = e.currentTarget.dataset;
+        deletes.item(i).addEventListener('click', function (){
+            const dataset = event.currentTarget.dataset;
             createModal('Delete Server', `
             <form id="delete-server-form">
                 Do you really want to delete "${dataset.name}"
@@ -229,7 +229,7 @@ function updateActions(){
     const items = document.getElementsByClassName('server-item');
 
     for(let i = 0; i < items.length; i++){
-        items.item(i).addEventListener('click', function (e){
+        items.item(i).addEventListener('click', function (){
             if(!event.target.offsetParent)
                 return;
             document.location.href = `/servers/${event.currentTarget.dataset.id}`;
