@@ -9,12 +9,6 @@
     }
 }
 
-@media (max-width: 400px){
-	.box {
-		width: auto !important;
-	}
-}
-
 *,
 *::before,
 *::after {
@@ -215,4 +209,10 @@ input[type=text] {
 @keyframes fade {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@media (max-width: 400px){
+	.box {
+		width: auto;
+	}
 }
