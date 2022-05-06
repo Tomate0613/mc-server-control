@@ -1,4 +1,4 @@
-function createModal(title, body){
+function createModal(title, body, force = false){
     const modal = document.createElement('div');
 
     modal.classList.add('modal');
@@ -12,9 +12,11 @@ function createModal(title, body){
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">${title}</h5>
+                    ${ force?'':`
                     <button id="close-add-server-modal" type="button" onclick="document.getElementById('background').remove()" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="iconify" data-icon="mdi-close">&times;</span>
-                    </button>
+                    </button>`
+                    }
                 </div>
                 <div class="modal-body">
                     ${body}

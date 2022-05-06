@@ -58,6 +58,21 @@ socket.on('update_server_list', (servers) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    //EULA
+    if(document.getElementById('box').dataset.eula === 'false')
+        createModal('EULA', `
+            <form>
+                <div class="form-group">
+                    You need to accept the mincraft eula in the <code>config.json</code> file and restart the server
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn" value="RETRY">
+                </div>
+            </form>
+        `, true);
+
+
+    //Add server button
     document.getElementById('add-server-button').addEventListener('click', () => {
         createModal('Add Server',`
             <form id="add-server-form">
@@ -104,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //Drag and drop server upload
     document.body.addEventListener('dragover', () => {
         event.preventDefault();
     });

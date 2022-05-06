@@ -63,7 +63,8 @@
 	margin-bottom: .5rem;
 }
 
-.server-item:hover {
+.server-item:hover,
+.server-item:focus {
 	height: 7rem;
 }
 
@@ -91,7 +92,8 @@
 	opacity: 0;
 }
 
-.server-item:hover .server-actions {
+.server-item:hover .server-actions,
+.server-item:focus .server-actions {
 	opacity: 1;
 }
 
