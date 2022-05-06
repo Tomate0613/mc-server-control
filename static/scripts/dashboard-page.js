@@ -217,7 +217,7 @@ function updateActions(){
                     const message = response.message;
 
                     if(status === 'OK'){
-                        createModal('Deleted server', 'Server is now deleted')
+                        createModal('Deleted server', 'Server has been deleted');
                     }else if(status == 'ERROR'){
                         createModal('Error', message);
                     }
