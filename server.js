@@ -49,7 +49,7 @@ app.set('view engine', 'ejs');
 
     //Dashboard page
     app.get('/', async function (req, res) {
-        res.render('index.ejs', { servers: await db.all('SELECT * FROM servers'), eula: config.accept_eula });
+        res.render('index.ejs', { servers: await db.all('SELECT * FROM servers'), eula: config.eula });
     });
 
     //Server page
@@ -111,7 +111,7 @@ app.set('view engine', 'ejs');
             return res.send({ status: 'ERROR', message: 'Server folder not found!' });
 
         // Accept minecraft eula
-        if (config.accept_eula)
+        if (config.eula)
             fs.writeFileSync(`${serverDir}/eula.txt`, '#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\n#\neula=true\n');
 
 
