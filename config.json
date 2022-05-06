@@ -1,5 +1,6 @@
 {
     "eula": false,
+    "eulaText": "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\n#\neula=true\n",
     "software": {
         "fabric": {
             "downloadUrl": "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.14.4/0.10.2/server/jar"

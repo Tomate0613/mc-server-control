@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             request.open('POST', `/api/server/`);
-            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
             request.send(JSON.stringify(body));
             
             request.addEventListener('load', function(e) {
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const file = files[0];
 
-        if(file.type !== "application/x-zip-compressed")
+        if(file.type !== 'application/x-zip-compressed')
             return;
 
         formData.append('upload', file, file.name);
@@ -163,7 +163,7 @@ function updateActions(){
 
                 if(status === 'OK'){
                     createModal('Starting server', 'Server is now starting');
-                }else if(status == 'ERROR'){
+                }else if(status === 'ERROR'){
                     createModal('Error', message);
                 }
             });
@@ -185,7 +185,7 @@ function updateActions(){
 
                 if(status === 'OK'){
                     createModal('Stopping server', 'Server is now shutting down');
-                }else if(status == 'ERROR'){
+                }else if(status === 'ERROR'){
                     createModal('Error', message);
                 }
             });
@@ -218,7 +218,7 @@ function updateActions(){
 
                     if(status === 'OK'){
                         createModal('Deleted server', 'Server has been deleted');
-                    }else if(status == 'ERROR'){
+                    }else if(status === 'ERROR'){
                         createModal('Error', message);
                     }
                 });

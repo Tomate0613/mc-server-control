@@ -54,7 +54,7 @@ app.set('view engine', 'ejs');
 
     //Server page
     app.get('/servers/:id', async function (req, res) {
-        if (!req.params.id || req.params.id == 'undefined') {
+        if (!req.params.id || req.params.id === 'undefined') {
             return res.send({status: 'ERROR'});
         }
         const result = await db.get('SELECT * FROM servers WHERE id = ?', [req.params.id]);
@@ -112,7 +112,7 @@ app.set('view engine', 'ejs');
 
         // Accept minecraft eula
         if (config.eula)
-            fs.writeFileSync(`${serverDir}/eula.txt`, '#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\n#\neula=true\n');
+            fs.writeFileSync(`${serverDir}/eula.txt`, config.eulaText);
 
 
         let jar = `minecraft/software/${serverData.software.toLowerCase()}.jar`;
