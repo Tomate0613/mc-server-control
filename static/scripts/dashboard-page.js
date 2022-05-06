@@ -1,4 +1,4 @@
-var socket = io();
+let socket = io();
 
 socket.on('connect', function() {
     console.log('Connected to server');
@@ -153,7 +153,7 @@ function updateActions(){
     for(let i = 0; i < starts.length; i++){
         starts.item(i).addEventListener('click', function (e){
             event.target.blur();
-            var request = new XMLHttpRequest();
+            let request = new XMLHttpRequest();
             request.open('POST', `/api/server/${event.currentTarget.dataset.id}/start`);
             request.send();
             request.addEventListener('load', function() {
@@ -172,10 +172,10 @@ function updateActions(){
 
     const stops = document.getElementsByClassName('stop-server');
 
-    for(var i = 0; i < stops.length; i++){
+    for(let i = 0; i < stops.length; i++){
         stops.item(i).addEventListener('click', function (e){
             event.target.blur();
-            var request = new XMLHttpRequest();
+            let request = new XMLHttpRequest();
             request.open('POST', `/api/server/${event.currentTarget.dataset.id}/stop`);
             request.send();
             request.addEventListener('load', function() {
@@ -194,7 +194,7 @@ function updateActions(){
 
     const deletes = document.getElementsByClassName('delete-server');
 
-    for(var i = 0; i < deletes.length; i++){
+    for(let i = 0; i < deletes.length; i++){
         deletes.item(i).addEventListener('click', function (e){
             const dataset = e.currentTarget.dataset;
             createModal('Delete Server', `
@@ -208,7 +208,7 @@ function updateActions(){
             `).addEventListener('submit', () => {
                 event.preventDefault();
                 document.getElementById('background').remove();
-                var request = new XMLHttpRequest();
+                let request = new XMLHttpRequest();
                 request.open('DELETE', `/api/server/${dataset.id}`);
                 request.send();
                 request.addEventListener('load', function() {
@@ -228,7 +228,7 @@ function updateActions(){
 
     const items = document.getElementsByClassName('server-item');
 
-    for(var i = 0; i < items.length; i++){
+    for(let i = 0; i < items.length; i++){
         items.item(i).addEventListener('click', function (e){
             if(!event.target.offsetParent)
                 return;
