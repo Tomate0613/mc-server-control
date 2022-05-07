@@ -37,25 +37,25 @@
                             </div>
                             <div class="server-status">
                             <% switch (server.status) {
-                            case 'stopped' : %>
+                            case 'stopped': %>
                                 <span class="iconify" data-icon="mdi-octagon">🛑</span>
                             <% break;
-                            case 'starting' : %>
+                            case 'starting': %>
                                 <span class="iconify mdi-spin" data-icon="mdi-loading">🔄</span>
                             <% break;
-                            case 'running' : %>
+                            case 'running': %>
                                 <span class="iconify" data-icon="mdi-server">💻</span>
                             <% break;
-                            case 'error' : %> <!-- Installation error -->
+                            case 'error': %> <!-- Installation error -->
                                 <span class="iconify" data-icon="mdi-alert-circle">⚠</span>
                             <% break;
-                            case 'crash' : %> <!-- Server crash -->
+                            case 'crash': %> <!-- Server crash -->
                                 <span class="iconify" data-icon="mdi-alert-circle">⚠</span>
                             <% break;
                             case 'creating' : %>
                                 <span class="iconify mdi-spin" data-icon="mdi-progress-download">🔽</span>
                             <% break;
-                            case 'default' : %>
+                            default: %>
                                 <span class="iconify" data-icon="mdi-alert-circle">⚠</span>
                             <% break;
                             } %>

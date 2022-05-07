@@ -110,3 +110,11 @@
 .server-status-creating .stop-server {
 	display: none;
 }
+
+.server-status-stopped .stop-server {
+	display: none;
+}
+
+.server-status-running .start-server {
+	display: none;
+}

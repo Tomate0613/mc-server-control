@@ -1,21 +1,22 @@
 :root {
-    --color-background: #222;
     --color-text: #fff;
-    --color-button: #00570d;
-    --color-button-hover: #006d10;
-    --color-button-active: #77b981;
-    --color-status-installing: #ffc107;
-    --color-status-running: #008000;
+    --color-modal-border-top: #e0e0e0;
     --color-status-stopped: #808080;
-    --color-status-error: #ff0000;
-    --color-background-overlay: #0000003d;
     --color-background-input: #ffffff3d;
     --color-border: #8888;
-    --color-shadow: #0004;
     --color-form-control-background: #8884;
-    --color-form-control-border-focus: #08a;
-    --color-modal-border-top: #e0e0e0;
+    --color-background: #222;
+    --color-box-background: #1b1b1b;
+    --color-background-overlay: #0000003d;
+    --color-shadow: #0004;
     --color-modal-background: #000;
+    --color-button: #00570d;
+    --color-button-hover: #006d10;
+    --color-status-running: #008000;
+    --color-button-active: #77b981;
+    --color-status-installing: #ffc107;
+    --color-status-error: #ff0000;
+    --color-form-control-border-focus: #08a;
     --color-arrow-hover: #6767ca;
     --color-server-item-background: #223;
 }
