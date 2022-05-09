@@ -1,0 +1,8 @@
+.plugin {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #313131;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
