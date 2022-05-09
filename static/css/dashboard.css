@@ -1,3 +1,21 @@
+.message-item {
+	display: flex;
+	position: relative;
+	padding: 1rem .75rem 1rem .75rem;
+	justify-content: space-between;
+	background-color: var(--color-server-item-background);
+	border-radius: .25rem;
+	transition: height .2s;
+	flex-direction: row;
+	height: 5rem;
+	cursor: pointer;
+}
+
+.message-item:hover,
+.message-item:focus {
+	height: 7rem;
+}
+
 .server-status .iconify {
 	font-size: 3rem;
 	margin-right: 10px;
@@ -46,7 +64,8 @@
 	background-color: var(--color-status-running);
 }
 
-.server-status-error::after {
+.server-status-error::after,
+.server-status-crash::after {
 	background-color: var(--color-status-error);
 }
 

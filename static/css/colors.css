@@ -16,6 +16,9 @@
     --color-button-active: #77b981;
     --color-status-installing: #ffc107;
     --color-status-error: #ff0000;
+    --color-button-danger: #7d0000;
+    --color-button-danger-hover: #670000;
+    --color-button-danger-active: #a24a4a;
     --color-form-control-border-focus: #08a;
     --color-arrow-hover: #6767ca;
     --color-server-item-background: #223;

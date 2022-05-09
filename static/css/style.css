@@ -176,6 +176,19 @@ h1 {
 	background-color: var(--color-button-active);
 }
 
+.btn-danger {
+	background-color: var(--color-button-danger);
+}
+
+.btn-danger:active {
+	background-color: var(--color-button-danger-active);
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+	background-color: var(--color-button-danger-hover);
+}
+
 *::selection {
 	background-color: initial;
 }
@@ -201,6 +214,20 @@ input[type=text] {
 	height: 2rem;
 }
 
+select {
+	background-color: var(--color-background-input);
+	color: var(--color-text);
+	margin-right: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 5px;
+	height: 2rem;
+}
+
+select:focus {
+	border-color: var(--color-form-control-border-focus);
+	transition: border-color .2s;
+}
+
 @keyframes spin {
     from { transform: rotateZ(0deg); }
     to { transform: rotateZ(360deg); }
@@ -215,4 +242,20 @@ input[type=text] {
 	.box {
 		width: auto;
 	}
+}
+
+#arrow-back {
+	position: fixed;
+	top: 5px;
+	left: 5px;
+}
+
+#arrow-back .iconify:hover,
+#arrow-back .iconify:focus {
+	color: var(--color-arrow-hover);
+}
+
+#arrow-back .iconify {
+	font-size: 3rem;
+	cursor: pointer;
 }
