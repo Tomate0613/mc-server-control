@@ -190,7 +190,8 @@ h1 {
 }
 
 *::selection {
-	background-color: initial;
+	background-color: aliceblue;
+	color: black;
 }
 
 .background {
@@ -206,9 +207,10 @@ h1 {
 }
 
 input[type=text] {
+	margin: .25rem 0;
+	padding: .25rem;
 	background-color: var(--color-background-input);
 	color: var(--color-text);
-	margin-right: 1rem;
 	border: 1px solid var(--color-border);
 	border-radius: 5px;
 	height: 2rem;
@@ -217,7 +219,8 @@ input[type=text] {
 select {
 	background-color: var(--color-background-input);
 	color: var(--color-text);
-	margin-right: 1rem;
+	margin: .25rem 0;
+	padding: .25rem;
 	border: 1px solid var(--color-border);
 	border-radius: 5px;
 	height: 2rem;
@@ -227,6 +230,12 @@ select:focus {
 	border-color: var(--color-form-control-border-focus);
 	transition: border-color .2s;
 }
+
+input[type=text]:focus {
+	border-color: var(--color-form-control-border-focus);
+	transition: border-color .2s;
+}
+
 
 @keyframes spin {
     from { transform: rotateZ(0deg); }
@@ -252,10 +261,15 @@ select:focus {
 
 #arrow-back .iconify:hover,
 #arrow-back .iconify:focus {
-	color: var(--color-arrow-hover);
+	color: var(--color-link);
 }
 
 #arrow-back .iconify {
 	font-size: 3rem;
 	cursor: pointer;
+}
+
+a {
+	color: var(--color-link);
+	text-decoration: none;
 }

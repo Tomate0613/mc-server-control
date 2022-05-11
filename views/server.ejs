@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="msapplication-TileColor" content="#00a300">
+        <meta name="msapplication-config" content="/static/icons/browserconfig.xml">
+        <meta name="description" content="Server screen for Minecraft Server Control">
+        <meta name="keywords" content="Minecraft, Server, Control">
+        <meta name="theme-color" content="#00a300">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+        <link rel="manifest" href="/static/icons/site.webmanifest">
+        <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#52a535">
+        <link rel="shortcut icon" href="/static/icons/favicon.ico">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/server.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/static/scripts/index.js"></script>
+        <script src="/static/scripts/server-page.js"></script>
+        <script src="/static/scripts/iconify.min.js"></script>
+        <title> <%- server.name %> | Minecraft Server Control </title>
+    </head>
+    <body>
+        <div id="box" class="box" data-id="<%- server.id %>">
+            <h1 id="server-name">
+                <%- server.name %>
+            </h1>
+            <div class="server-data">
+                <div id="server-id">ID: <span id="server-id"><%- server.id %></span>
+                </div>
+                <div id="server-created-display">CREATED: <span id="server-created"><%- server.created %></span>
+                </div>
+                <div id="server-status-display">STATUS: <span id="server-status"><%- server.status %></span>
+                </div>
+                <div id="server-software-display">SOFTWARE: <span id="server-software"><%- server.software %></span>
+                </div>
+                <div id="server-version-display">VERSION: <span id="server-version"><%- server.version %></span>
+                </div>
+            </div>
+            <form id="server-form" class="server-form">
+                <input class="btn" type="button" id="change-name" value="Rename">
+                <input class="btn" type="button" id="change-version" value="Version">
+                <input class="btn" type="button" id="start-server" value="Start">
+                <input class="btn" type="button" id="stop-server" value="Stop">
+                <% if(server.software === "Fabric") { %>
+                    <a href="mods" tabindex="-1"><input class="btn" type="button" value="Mods"></a>
+                <% } if(server.software === "Paper") { %>
+                    <a href="plugins" tabindex="-1"><input class="btn" type="button" value="Plugins"></a>
+                <% } %>
+            </form>
+        </div>
+        <div id="console">
+            <div id="logs"> Server is not running </div>
+            <form id="inputs">
+                <div id="suggestions"></div>
+                <input type="text" id="input" placeholder="help">
+                <input type="submit" id="submit" value="Send" class="btn">
+            </form>
+        </div>
+        <div id="arrow-back">
+            <span class="iconify" data-icon="bx:left-arrow-alt" onclick="location.href = '/'">⬅</span>
+        </div>
+    </body>
+</html>
