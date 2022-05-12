@@ -138,27 +138,27 @@
 	display: none;
 }
 
-.server-status-error .server-status:focus:after {
+.server-status-error .server-status:focus::after {
 	content: 'Crash during installation';
 }
 
-.server-status-running .server-status:focus:after {
+.server-status-running .server-status:focus::after {
 	content: 'Server is currently running';
 }
 
-.server-status-stopped .server-status:focus:after {
+.server-status-stopped .server-status:focus::after {
 	content: 'Server is currently stopped';
 }
 
-.server-status-crash .server-status:focus:after {
+.server-status-crash .server-status:focus::after {
 	content: 'Server has crashed';
 }
 
-.server-status-creating .server-status:focus:after {
+.server-status-creating .server-status:focus::after {
 	content: 'Server is currently beeing installed';
 }
 
-.server-item .server-status:focus:after {
+.server-item .server-status:focus::after {
 	position: fixed;
 	top: 50%;
 	left: 50%;
