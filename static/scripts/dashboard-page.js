@@ -42,16 +42,20 @@ socket.on('update_server_list', (servers) => {
             <span class="text-secondary text-smaller">${server.id}</span> - 
             <span class="text-secondary text-smaller">${server.software}</span>
         </div>
-        <div class="server-status">
+        <div class="server-status" tabindex="0">
             ${icon}
         </div>
-        <div class="server-actions"><span data-id="${server.id}" class="start-server"><span class="iconify" data-icon="mdi-play">▶</span></span> <span class="stop-server" data-id="${server.id}"><span class="iconify" data-icon="mdi-stop">🟥</span></span> <span class="delete-server" data-id="${server.id}" data-name="${server.name}"><span class="iconify" data-icon="mdi-delete">❌</span></span></div>
+        <div class="server-actions">
+            <span data-id="${server.id}" class="start-server" tabindex="0"><span class="iconify" data-icon="mdi-play">▶</span></span>
+            <span class="stop-server" data-id="${server.id}" tabindex="0"><span class="iconify" data-icon="mdi-stop">🟥</span></span>
+            <span class="delete-server" data-id="${server.id}" data-name="${server.name}" tabindex="0"><span class="iconify" data-icon="mdi-delete">❌</span></span>
+        </div>
         `;
         list.appendChild(serverItem);
     });
 
     if (servers.length === 0) {
-        list.innerHTML = '<div class="server-item">No servers here ;-;</div>';
+        list.innerHTML = '<div class="message-item">No servers here ;-;</div>';
     }
 
     updateActions();
@@ -87,19 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
                         <option>Paper</option>
                         <option>Fabric</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="server-version">Server Version</label>
+                    <select id="server-version">
+                        <option>1.18.2</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <input type="submit" class="btn form-control" id="submit-add-server-modal" value="Create">
                 </div>
             </form>
         `).addEventListener('submit', () => {
             event.preventDefault();
-            console.log(event);
 
             const request = new XMLHttpRequest();
 
             const body = {
                 name: document.getElementById('server-name').value,
-                software: document.getElementById('server-software').value
+                software: document.getElementById('server-software').value,
+                version: document.getElementById('server-version').value
             };
 
             request.open('POST', '/api/server/');
@@ -201,7 +212,7 @@ function updateActions() {
             <form id="delete-server-form">
                 Do you really want to delete "${dataset.name}"
                 <div class="form-group">
-                    <input type="submit" class="btn form-control" id="submit-add-server-modal" value="Delete">
+                    <input type="submit" class="btn btn-danger form-control" id="submit-add-server-modal" value="Delete">
                     <input type="button" class="btn form-control" value="Cancel" onclick="document.getElementById('background').remove()">
                 </div>
              </form>
@@ -232,7 +243,7 @@ function updateActions() {
         items.item(i).addEventListener('click', function () {
             if (!event.target.offsetParent)
                 return;
-            document.location.href = `/servers/${event.currentTarget.dataset.id}`;
+            document.location.href = `/servers/${event.currentTarget.dataset.id}/`;
         });
     }
 }

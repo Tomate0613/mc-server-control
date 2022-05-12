@@ -35,7 +35,7 @@
                                 <span class="text-secondary text-smaller"><%- server.id %></span> - 
                                 <span class="text-secondary text-smaller"><%- server.software == null ? 'null' : server.software %></span>
                             </div>
-                            <div class="server-status">
+                            <div class="server-status" tabindex="0">
                             <% switch (server.status) {
                             case 'stopped': %>
                                 <span class="iconify" data-icon="mdi-octagon">🛑</span>
@@ -60,12 +60,16 @@
                             <% break;
                             } %>
                             </div>
-                            <div class="server-actions"><span data-id="<%- server.id %>" class="start-server"><span class="iconify" data-icon="mdi-play">▶</span></span> <span class="stop-server" data-id="<%- server.id %>"><span class="iconify" data-icon="mdi-stop">🟥</span></span> <span class="delete-server" data-id="<%- server.id %>" data-name="<%- server.name %>"><span class="iconify" data-icon="mdi-delete">❌</span></span></div>
+                            <div class="server-actions">
+                                <span data-id="<%- server.id %>" class="start-server" tabindex="0"><span class="iconify" data-icon="mdi-play">▶</span></span>
+                                <span class="stop-server" data-id="<%- server.id %>" tabindex="0"><span class="iconify" data-icon="mdi-stop">🟥</span></span>
+                                <span class="delete-server" data-id="<%- server.id %>" data-name="<%- server.name %>" tabindex="0"><span class="iconify" data-icon="mdi-delete">❌</span></span>
+                            </div>
                         </div>
                     <% }); %>
 
                     <% if(servers.length == 0) { %>
-                        <div class="server-item">No servers yet ;-;<br>You can drag and drop a server zip here</div>
+                        <div class="message-item">No servers yet ;-;<br>You can drag and drop a server zip here</div>
                     <% } %>
                 </div>
             </div>
