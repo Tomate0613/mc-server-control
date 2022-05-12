@@ -236,6 +236,26 @@ input[type=text]:focus {
 	transition: border-color .2s;
 }
 
+#arrow-back {
+	position: fixed;
+	top: 5px;
+	left: 5px;
+}
+
+#arrow-back .iconify {
+	font-size: 3rem;
+	cursor: pointer;
+}
+
+#arrow-back .iconify:hover,
+#arrow-back .iconify:focus {
+	color: var(--color-link);
+}
+
+a {
+	color: var(--color-link);
+	text-decoration: none;
+}
 
 @keyframes spin {
     from { transform: rotateZ(0deg); }
@@ -251,25 +271,4 @@ input[type=text]:focus {
 	.box {
 		width: auto;
 	}
-}
-
-#arrow-back {
-	position: fixed;
-	top: 5px;
-	left: 5px;
-}
-
-#arrow-back .iconify:hover,
-#arrow-back .iconify:focus {
-	color: var(--color-link);
-}
-
-#arrow-back .iconify {
-	font-size: 3rem;
-	cursor: pointer;
-}
-
-a {
-	color: var(--color-link);
-	text-decoration: none;
 }

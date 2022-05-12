@@ -1,4 +1,5 @@
-#server-name, .server-data * {
+#server-name,
+.server-data * {
     mask-image: linear-gradient(to right, black 70%, transparent);
 }
 

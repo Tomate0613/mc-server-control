@@ -1,4 +1,4 @@
-function createModal(title, body, force = false){
+function createModal(title, body, force = false) {
     const modal = document.createElement('div');
 
     modal.classList.add('modal');
