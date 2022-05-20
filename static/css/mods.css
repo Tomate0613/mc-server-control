@@ -1,0 +1,60 @@
+#box-left {
+    float: left;
+}
+
+#box-right {
+    float: right;
+}
+
+.box {
+    margin: 1rem;
+    padding: 1rem;
+    width: 50%;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+.mod {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #313131;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mod-name {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.mod-icon {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    margin-right: 2rem;
+}
+
+.mod-author {
+    opacity: .5;
+	margin-bottom: 1rem;
+}
+
+.mod-author::before {
+    content: '@';
+}
+
+.mod-body {
+    display: none;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--color-background);
+}
+
+.mod:focus .mod-body {
+    display: flex;
+}

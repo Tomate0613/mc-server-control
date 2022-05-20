@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="msapplication-TileColor" content="#00a300">
+        <meta name="msapplication-config" content="/static/icons/browserconfig.xml">
+        <meta name="description" content="Server screen for Minecraft Server Control">
+        <meta name="keywords" content="Minecraft, Server, Control">
+        <meta name="theme-color" content="#00a300">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+        <link rel="manifest" href="/static/icons/site.webmanifest">
+        <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#52a535">
+        <link rel="shortcut icon" href="/static/icons/favicon.ico">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/mods.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/static/scripts/index.js"></script>
+        <script src="/static/scripts/mods-page.js"></script>
+        <script src="/static/scripts/iconify.min.js"></script>
+        <title> Mods | Minecraft Server Control </title>
+    </head>
+    <body>
+        <div id="container" data-id="<%- server.id %>" data-version="<%- server.version %>">
+            <div id="box-left" class="box">
+                <h1>Installed mods</h1>
+                <div id="installed-mods">
+                    <% mods.forEach(function(mod) { %>
+                        <div class="mod" tabindex="0">
+                            <image class="mod-icon" src="<%- mod.icon_url %>"></image>
+                            <div class="mod-info">
+                                <h2 class="mod-name"><%- mod.title %></h2>
+                                <div class="mod-description"><%- mod.description %></div>
+                                <div class="mod-body"><%- mod.body.replaceAll('\n', '<br>') %></div>
+                                <div class="mod-buttons">
+                                    <input type="button" class="btn btn-danger" onclick="remove('<%- mod.file %>')" value="Remove"></input>
+                                </div>
+                            </div>
+                        </div>
+                    <%  }); %>
+                </div>
+            </div>
+            <div id="box-right" class="box">
+                <h1>Install mods form <a href="//www.modrinth.com">modrinth</a></h1>
+                <input type="text" id="mod-search" placeholder="Search mods...">
+                <div id="install-mods"></div>
+            </div>
+            <div id="arrow-back">
+                <span class="iconify" data-icon="bx:left-arrow-alt" onclick="location.href = '.'">⬅</span>
+            </div>
+        </div>
+    </body>
+</html>
