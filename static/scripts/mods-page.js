@@ -33,7 +33,7 @@ socket.on('mod_list', (data) => {
             <div class="mod-info">
                 <h2 class="mod-name">${mod.title}</h2>
                 <div class="mod-description">${mod.description}</div>
-                <div class="mod-body">${mod.body.replaceAll('\n', '<br>')}</div>
+                <div class="mod-body">${mod.body}</div>
                 <div class="mod-buttons">
                     <input type="button" class="btn btn-danger" onclick="remove('${mod.file}')" value="Remove"></input>
                 </div>

@@ -12,10 +12,11 @@ const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const config = require('./config.json');
 const extract = require('extract-zip');
 const fetch = require('node-fetch');
 const crypto = require('crypto');
+const md = require('markdown-it')({ html: true });
+const config = require('./config.json');
 
 const runningServers = new Map();
 
@@ -542,6 +543,8 @@ async function getModList(serverDir) {
             const d = await fetch(`https://api.modrinth.com/v2/project/${versionList[i].project_id}`);
             // eslint-disable-next-line no-await-in-loop
             modList[modList.push(await d.json()) - 1].file = versionList[i].file;
+            // eslint-disable-next-line require-unicode-regexp
+            modList[modList.length - 1].body = md.render(modList[modList.length - 1].body);
         } catch (e) {
             console.error(e);
         }
