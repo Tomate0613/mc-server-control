@@ -17,6 +17,7 @@ const fetch = require('node-fetch');
 const crypto = require('crypto');
 const md = require('markdown-it')({ html: true });
 const config = require('./config.json');
+const autoUpdater = require('auto-git-update');
 
 const runningServers = new Map();
 
@@ -551,4 +552,9 @@ async function getModList(serverDir) {
     }
 
     return modList;
+}
+
+if (config.autoUpdateSettings.update) {
+    const updater = new autoUpdater(config.autoUpdateSettings);
+    updater.autoUpdate();
 }

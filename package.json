@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Tomate0613/mc-server-control#readme",
   "dependencies": {
+    "auto-git-update": "^2.1.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "ejs": "^3.1.7",

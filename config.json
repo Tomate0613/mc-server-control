@@ -12,5 +12,14 @@
             "downloadUrl": "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar"
         }
     },
-    "extensiveLogging": false
+    "extensiveLogging": false,
+    "autoUpdateSettings": {
+        "update": true,
+        "repository": "https://github.com/Tomate0613/mc-server-control",
+        "fromReleases": true,
+        "tempLocation": "temp",
+        "ignoreFiles": ["config.json"],
+        "executeOnComplete": "node index.js",
+        "exitOnComplete": true
+    }
 }
