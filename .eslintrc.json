@@ -117,7 +117,7 @@
         "max-statements": "off",
         "max-statements-per-line": "error",
         "multiline-comment-style": "error",
-        "multiline-ternary": "error",
+        "multiline-ternary": "off",
         "new-parens": "error",
         "newline-per-chained-call": "error",
         "no-alert": "error",
