@@ -1,0 +1,13 @@
+.box {
+	width: 600px;
+}
+
+@media (max-width: 600px) {
+	.box {
+		width: auto;
+	}
+}
+
+.properties {
+    margin: 1rem;
+}
